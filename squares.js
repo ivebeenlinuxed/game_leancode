@@ -16,13 +16,18 @@ function game_clues(game) {
     for (var j=0; j<game[i].length; j++) {
       if (clue > 0 && game[i][j] == 0) {
         num_clues.push(clue);
+        clue = 0;
       } else if (game[i][j] == 1) {
         clue++;
       }
     }
+    if (clue > 0) {
+      num_clues.push(clue);
+    }
     clue_rows.push(num_clues);
   }
-  
+
+
   var clue_cols = [];
   for (var i=0; i<game[0].length; i++) {
     var num_clues=[];
@@ -30,14 +35,23 @@ function game_clues(game) {
     for (var j=0; j<game.length; j++) {
       if (clue > 0 && game[j][i] == 0) {
         num_clues.push(clue);
+        clue = 0;
       } else if (game[j][i] == 1) {
         clue++;
       }
     }
+    if (clue > 0) {
+      num_clues.push(clue);
+    }
     clue_cols.push(num_clues);
   }
   
-  return {'col_clues': clue_cols, 'row_clues': clue_rows};
+  return {
+    'col_clues': clue_cols,
+    'row_clues': clue_rows,
+    'rows': game.length,
+    'cols': game[0].length
+    };
 }
 
-var_dump(game_clues(test_game));
+console.log(game_clues(test_game));
