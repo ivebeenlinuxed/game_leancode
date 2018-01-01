@@ -53,5 +53,68 @@ function game_clues(game) {
     'cols': game[0].length
     };
 }
+var the_clues;
+console.log(the_clues = game_clues(test_game));
 
-console.log(game_clues(test_game));
+//-------------------------------
+function get_col() {
+
+}
+
+function get_row() {
+
+}
+
+function build_frame(rows, cols) {
+  frame = [];
+  for (row=0; row<rows; rows++) {
+    a_row = [];
+    for (col=0; col<cols; cols++) {
+      a_row.push(new FrameSquare());
+    }
+    frame.push(a_row);
+  }
+}
+
+class FrameSquare {
+  constructor() {
+    this.number = null;
+  }
+}
+
+
+function is_completed(frame) {
+  for (var i=0; i<frame.rows; i++) {
+    for (var j=0; j<frame.cols; j++) {
+      if (frame[i][j] == null) {
+        return false;
+      }
+    }
+  }
+  return true;
+}
+
+
+//----------------
+
+var algo_stack = [];
+
+function main(the_clues) {
+  var frame = build_frame(the_clues.rows, the_clues.cols);
+  for (var i=0; i<the_clues.rows; i++) {
+    algo_stack.push({direction: 'R', index: i, algo: 'certain'});
+  }
+  for (var j=0; j<the_clues.cols; j++) {
+    algo_stack.push({direction: 'C', index: i, algo: 'certain'});
+  }
+  
+
+  while (!is_completed(frame)) {
+    
+  }
+}
+
+
+function algo_certain(frame) {
+  
+}
