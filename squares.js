@@ -125,4 +125,3 @@ function algo_certain(frame, algo_pack) {
   console.log("IN ALGO", algo_pack);
 }
 
-main(the_clues);
