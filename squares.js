@@ -74,6 +74,7 @@ function build_frame(rows, cols) {
     }
     frame.push(a_row);
   }
+  return frame;
 }
 
 class FrameSquare {
