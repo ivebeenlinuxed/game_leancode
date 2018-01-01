@@ -67,9 +67,9 @@ function get_row() {
 
 function build_frame(rows, cols) {
   var frame = [];
-  for (var row=0; row<rows; rows++) {
+  for (var row=0; row<rows; row++) {
     var a_row = [];
-    for (var col=0; col<cols; cols++) {
+    for (var col=0; col<cols; col++) {
       a_row.push(new FrameSquare());
     }
     frame.push(a_row);
