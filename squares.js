@@ -1,6 +1,6 @@
 "use strict"
 
-test_game = [
+var test_game = [
   [1,1,1,1,1],
   [0,1,1,1,0],
   [0,0,1,0,0],
