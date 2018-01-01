@@ -66,9 +66,9 @@ function get_row() {
 }
 
 function build_frame(rows, cols) {
-  frame = [];
+  var frame = [];
   for (row=0; row<rows; rows++) {
-    a_row = [];
+    var a_row = [];
     for (col=0; col<cols; cols++) {
       a_row.push(new FrameSquare());
     }
@@ -108,13 +108,21 @@ function main(the_clues) {
     algo_stack.push({direction: 'C', index: i, algo: 'certain'});
   }
   
-
-  while (!is_completed(frame)) {
-    
+  var max_interations = 0;
+  while (!is_completed(frame) && max_iterations < 1000) {
+    if (algo_stack.length == 0) {
+      console.log("Could not complete");
+      return;
+    }
+    var algo_pack = algo_stack.pop();
+    window['algo_'+algo_pack.algo](frame, algo_pack);
+    max_iterations++;
   }
 }
 
 
-function algo_certain(frame) {
-  
+function algo_certain(frame, algo_pack) {
+  console.log("IN ALGO", algo_pack);
 }
+
+main(the_clues);
